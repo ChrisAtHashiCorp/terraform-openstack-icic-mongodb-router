@@ -30,7 +30,7 @@ variable "configrs_hosts" {
 }
 
 variable "configdb" {
-  type = string
+  type = map
 }
 
 variable "sshkey_prefix" {
