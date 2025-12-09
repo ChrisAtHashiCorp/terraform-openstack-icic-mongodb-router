@@ -26,11 +26,11 @@ variable "network" {
 }
 
 variable "configrs_hosts" {
-  type = string
+  type = map
 }
 
 variable "configdb" {
-  type = map
+  type = string
 }
 
 variable "sshkey_prefix" {
