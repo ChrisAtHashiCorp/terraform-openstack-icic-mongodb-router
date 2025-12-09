@@ -25,6 +25,10 @@ variable "network" {
   type = string
 }
 
+variable "configrs_hosts" {
+  type = string
+}
+
 variable "configdb" {
   type = string
 }
