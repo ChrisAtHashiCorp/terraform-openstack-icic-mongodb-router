@@ -13,11 +13,6 @@ write_files:
     defer: true
     content: ${mongod-config}
 
-  - path: /tmp/replicaset-cfg.js
-    encoding: b64
-    defer: true
-    content: ${replicaset-config}
-
 runcmd:
   - setenforce Permissive
   - update-ca-trust
