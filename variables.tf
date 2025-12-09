@@ -26,7 +26,7 @@ variable "network" {
 }
 
 variable "configrs_hosts" {
-  type = map
+  type = map(string)
 }
 
 variable "configdb" {
