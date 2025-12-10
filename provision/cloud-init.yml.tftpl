@@ -8,10 +8,10 @@ chpasswd:
   expire: false
 
 write_files:
-  - path: /etc/mongod.conf
+  - path: /etc/mongos.conf
     encoding: b64
     defer: true
-    content: ${mongod-config}
+    content: ${mongos-config}
 
   - path: /etc/hosts
     encoding: b64
@@ -22,7 +22,7 @@ write_files:
 runcmd:
   - setenforce Permissive
   - update-ca-trust
-  - systemctl enable mongod.service
-  - systemctl restart mongod.service
+  - systemctl enable mongos.service
+  - systemctl restart mongos.service
   - systemctl enable --now httpd.service
   - systemctl daemon-reload

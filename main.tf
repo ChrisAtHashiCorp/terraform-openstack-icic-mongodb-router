@@ -10,7 +10,7 @@ resource "random_id" "node_id" {
 locals {
   fqdns = [for i in range(var.node_count) : "${var.name_prefix}-${random_id.node_id[i].hex}.${var.domain}"]
 
-  mongod-config = [for i in range(var.node_count) : templatefile("${path.module}/provision/mongod.conf.tftpl",
+  mongos-config = [for i in range(var.node_count) : templatefile("${path.module}/provision/mongod.conf.tftpl",
     {
       fqdn       = local.fqdns[i]
       configdb   = var.configdb
@@ -21,7 +21,7 @@ locals {
     {
       fqdn              = local.fqdns[i]
       configrs-hosts    = base64encode(join("\n", [ for k, v in var.configrs_hosts : "${v} ${k}" ]))
-      mongod-config     = base64encode(local.mongod-config[i])
+      mongos-config     = base64encode(local.mongos-config[i])
     }
   )]
 }
