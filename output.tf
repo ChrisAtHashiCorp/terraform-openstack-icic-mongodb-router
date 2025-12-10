@@ -1,3 +1,3 @@
-output "user-data" {
-  value = local.user-data
+output "fqdns" {
+  value = local.fqdns
 }
